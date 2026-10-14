@@ -1,3 +1,4 @@
+
 sealed class CoffeeMachineState {
     object Idle : CoffeeMachineState()
     object MakingCoffee : CoffeeMachineState()
@@ -30,8 +31,10 @@ object CoffeeMachine {
                 println("La máquina tiene un error: ${(currentState as CoffeeMachineState.Error).message}")
             }
             is CoffeeMachineState.Idle -> {
-                println("La máquina está apagada. Por favor, enciéndela primero.")
+                println("La máquina está apagada.")
             }
+            is CoffeeMachineState.Error -> {
+                println("La máquina tiene un error: ${(currentState as CoffeeMachineState.Error).message}")
         }
     }
 
