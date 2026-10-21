@@ -1,11 +1,26 @@
-import org.example.CoffeeMachine
-import org.example.CoffeeType
+package org.example
 
-fun main() {
-    println("--- PRUEBA 1 (Todo correcto) ---")
-    CoffeeMachine.hacerCafe(dineroIngresado = 1.5, azucar = false, tipoCafe = CoffeeType.AMERICANO)
-    /*/
-        println("--- PRUEBA 2 (Falta dinero) ---")
-        CoffeeMachine.hacerCafe(dineroIngresado = 0.5, azucar = false, tipoCafe = CoffeeType.ESPRESSO)
-     */
+import kotlin.test.Test
+import kotlin.test.assertEquals
+
+class MainTest {
+
+    @Test
+    fun comprobarEstadoInicial() {
+        assertEquals(CoffeeMachineState.Idle, CoffeeMachine.currentState)
+    }
+
+    @Test
+    fun comprobarCicloCompletoCafeExitoso() {
+        CoffeeMachine.hacerCafe(1.5, true, CoffeeType.ESPRESSO)
+
+        assertEquals(CoffeeMachineState.Idle, CoffeeMachine.currentState)
+    }
+
+    @Test
+    fun comprobarCicloConDineroInsuficiente() {
+        CoffeeMachine.hacerCafe(0.5, false, CoffeeType.AMERICANO)
+
+        assertEquals(CoffeeMachineState.Idle, CoffeeMachine.currentState)
+    }
 }

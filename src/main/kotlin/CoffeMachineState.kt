@@ -1,7 +1,7 @@
 package org.example
 
 //Pondré todos los estados de la máquina de café que según yo deberían de existir en el proceso.
-// Todo basado en el diagrama.
+//Todo basado en el diagrama.
 
 
 enum class CoffeeType {
