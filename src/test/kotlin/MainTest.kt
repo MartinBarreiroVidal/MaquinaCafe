@@ -12,6 +12,7 @@ class MainTest {
 
     @Test
     fun comprobarCicloCompletoCafeExitoso() {
+
         CoffeeMachine.hacerCafe(1.5, true, CoffeeType.ESPRESSO)
 
         assertEquals(CoffeeMachineState.Idle, CoffeeMachine.currentState)
